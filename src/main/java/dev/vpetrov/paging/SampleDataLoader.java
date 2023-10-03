@@ -24,12 +24,12 @@ public class SampleDataLoader implements CommandLineRunner {
     public void run(String ...args) {
         List<Person> people = IntStream.rangeClosed(1, 100)
             .mapToObj(i -> new Person(
-                faker.name().firstName(),
+                i, faker.name().firstName(),
                 faker.name().lastName(),
                 faker.phoneNumber().cellPhone(),
                 faker.internet().emailAddress(),
                 new Address(
-                    faker.address().streetAddress(),
+                    i, faker.address().streetAddress(),
                     faker.address().city(),
                     faker.address().state(),
                     faker.address().zipCode()

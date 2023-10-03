@@ -6,11 +6,18 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Data
+
 @Entity
 @Table
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
 public class Address {
 
     @Id
@@ -19,15 +26,19 @@ public class Address {
     private Integer id;
 
     @Column
-    private final String address;
+    @NonNull
+    private String address;
 
     @Column
-    private final String city;
+    @NonNull
+    private String city;
 
     @Column
-    private final String state;
+    @NonNull
+    private String state;
 
     @Column
-    private final String zip;
+    @NonNull
+    private String zip;
 
 }

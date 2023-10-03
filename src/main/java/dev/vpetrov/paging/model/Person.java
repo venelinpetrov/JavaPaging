@@ -10,11 +10,17 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
-import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Data
 @Entity
 @Table
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
 public class Person {
 
     @Id
@@ -23,19 +29,24 @@ public class Person {
     private Integer id;
 
     @Column
-    private final String firstName;
+    @NonNull
+    private String firstName;
 
     @Column
-    private final String lastName;
+    @NonNull
+    private String lastName;
 
     @Column
-    private final String phoneNumber;
+    @NonNull
+    private String phoneNumber;
 
     @Column
-    private final String email;
+    @NonNull
+    private String email;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "address_id", referencedColumnName = "id")
-    private final Address address;
+    @NonNull
+    private Address address;
 
 }
